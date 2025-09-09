@@ -72,12 +72,7 @@ This repository contains materials for the **Advanced Database Lab** course. It 
 - **Scope**: Must be **realistic** (e.g., not a toy project).
 - **No existing datasets**: Should get real data by **scraping**.
 - **Bonus Points**: AI Integration.
-  
-Example Ideas:
-- Intelligent travel assistant
-- Healthcare data system
-- Real-time chat app with analytics
-- Recommendation engine
+
 
 ---
 
