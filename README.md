@@ -45,17 +45,15 @@ This repository contains materials for the **Advanced Database Lab** course. It 
 
 ##  Schedule (Tentative)
 
-| Week | Topic                                | Deliverables          | Notes |
-|------|--------------------------------------|-----------------------|-------|
-| 1    | Refresher: SQL, Transactions         | Lab 1                 |
-| 2    | NoSQL Databases (MongoDB)            | Lab 2                 |
-| 3    | Cloud Databases & APIs               | Assignment 1          |
-| 4    | Vector Databases                     | Lab 3                 |
-| 5    | Performance & Optimization           | Lab 4                 |
-| 6    | Transactions & Advanced Features     | Assignment 2          |
-| 7    | Project Proposal                     | Project Proposal Doc  |
-| 8-12 | Project Development                  | Weekly Check-ins      |
-| 13   | Final Project Presentations          | Project Submission    |
+| Week | Topic                                                       | Deliverables         | Notes |
+|------|-------------------------------------------------------------|----------------------|-------|
+| 1    | Refresher: SQL, Stored Procedures, Triggers, SQL Injections |                      |
+| 2    | Postgres and MongoDB                                        |                      |
+| 3    | APIs                                                        | Assignment 1         |
+| 4    | Vector Databases                                            | Lab 1                |
+| 5    | Performance & Optimization                                  | Lab 2                |
+| 6    | Transactions & Advanced Features                            | Assignment 2         |
+
 
 ---
 
