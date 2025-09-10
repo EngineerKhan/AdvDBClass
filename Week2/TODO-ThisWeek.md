@@ -5,5 +5,9 @@
 - **[Quick Labs - try it yourself](https://github.com/EngineerKhan/AdvDBClass/blob/main/Week2/MongoDB.md#quick-lab-tasks-try-it-yourself)**
   
 
+### Next Week
 
-* I would recommend **TablePlus** for Postgres.
+- Implementing APIs using FastAPI (keep your Python IDEs like PyCharm, VS Code, etc, ready).
+- Lab tasks on MongoDB and Postgres.
+
+_I would recommend **TablePlus** for Postgres._
