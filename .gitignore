@@ -1,2 +1,9 @@
-/Week3
 .idea/
+/Week3/SettingUpAPIServer.ipynb
+/Week3/MongoAPI.py
+/Week3/InstructorNotes.md
+/Week3/Basic API Example.md
+Week3/.DS_Store
+Week3/__pycache__/basicFastapi.cpython-313.pyc
+Week3/__pycache__/MongoAPI.cpython-313.pyc
+Week3/__pycache__/basicAPI.cpython-313.pyc
