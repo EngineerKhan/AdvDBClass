@@ -168,7 +168,7 @@ As a most basic example, we can define the entry endpoint, `/`
 @app.get("/")
 ```
 
-Since Python decorators expect a function as an argument, we can either use a function or a [$\lambda$ function](https://github.com/EngineerKhan/Python-ML/blob/main/Python%20Language/03%E2%80%93Functional%20Programming.ipynb) to define the endpoint.
+Since Python decorators expect a function as an argument, we can either use a function or a $\lambda$ [function](https://github.com/EngineerKhan/Python-ML/blob/main/Python%20Language/03%E2%80%93Functional%20Programming.ipynb) to define the endpoint.
 For example, we can define the entry endpoint as:
 
 ```python
