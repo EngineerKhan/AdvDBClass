@@ -39,9 +39,9 @@ Client's side:
 ### API Types
 APIs can be of different types: public, paywall, internal.
 
-The most basic type of API is a public API. It’s an API that’s openly documented and accessible. Many public APIs are free to use **but still require an API key** (e.g., NASA). Others are truly open and require no key (e.g., Open-Meteo, Cat Facts). Some platforms (e.g., X/Twitter) now require paid tiers for meaningful access.
+The most basic type of API is a public API. It’s an API that’s openly documented and accessible. Many public APIs are free to use **but still require an API key** (e.g., NASA). Others are truly open and require no key (e.g., Open-Meteo, Cat Facts).
 
-> Many public APIs require authentication. Keys/tokens help with rate limiting, quotas, and analytics (who’s calling what and how often).
+> There are different reasons why many public APIs require authentication: they can help with rate limiting, quotas and analytics (who’s calling what and how often).
 
 There are also APIs behind a paywall, like the OpenAI API. Some APIs are purely internal and exist only to connect components within a company’s systems.
 
@@ -75,14 +75,14 @@ Beyond browsers, we can use some sophisticated clients to access APIs as well, l
 
 ## Making API Server
 
-Let’s keep it short and focus on the core topic: making an API server.
-To make an API server, we need to know some basic concepts. We will be considering a bookstore as an example.
+Now let's focus on the core topic: making an API server.
+To make an API server, we need to know some basic concepts. We will go through these concepts by considering a bookstore as an example.
 
 ### Endpoints
 
-Endpoints are the actual URLs that we use to access the API. Like the URL above, we can access the tweets using the endpoint: `/2/tweets` (`api.twitter.com` is the base URL and will remain the same for all the endpoints).
+Endpoints are the actual URLs that we use to access the API. Like in the URL above, we can access the tweets using the endpoint: `/2/tweets` (`api.twitter.com` is the base URL and will remain the same for all the endpoints).
 
-In the case of the bookstore, we can have endpoints to fetch books, authors, or book prices, like:
+In the case of the bookstore, we can have endpoints to fetch books, authors or book prices, like:
 - `/books`
 - `/authors`
 - `/bookprices`
@@ -101,7 +101,10 @@ Query parameters are appended to the endpoint URL (after the \?). For example, t
 `/books?author=John`
 You can include multiple query parameters, e.g.: 
 `/books?author=John&genre=Fiction`
-There is no standard **OR** operator in query strings. If you need OR logic, you typically repeat the parameter (e.g., `author=John&author=Jane`), accept a comma‑separated list (e.g., `author=John,Jane`), or design the API to support arrays (e.g., `/books?author=John&author=Jane`).
+
+> There is no standard **OR** operator in query strings. 
+
+If you need OR logic, you typically repeat the parameter (e.g., `author=John&author=Jane`), accept a comma‑separated list (e.g., `author=John,Jane`) or design the API to support arrays (e.g., `/books?author=John&author=Jane`).
 
 #### Path Parameters
 
@@ -158,14 +161,14 @@ app = FastAPI()
 ```
 
 Now this `app` object is our API server. We can use it to define our endpoints. 
-For defining an endpoint, we need to use the `@app.get()` decorator and specify the endpoint URL.
+For defining an endpoint, we will use the `@app.get()` decorator and specify the endpoint URL.
 As a most basic example, we can define the entry endpoint, `/`
 
 ```python
 @app.get("/")
 ```
 
-Since Python decorators expect a function as an argument, we can either use a function or a $\lambda$ function to define the endpoint.
+Since Python decorators expect a function as an argument, we can either use a function or a [$\lambda$ function](https://github.com/EngineerKhan/Python-ML/blob/main/Python%20Language/03%E2%80%93Functional%20Programming.ipynb) to define the endpoint.
 For example, we can define the entry endpoint as:
 
 ```python
@@ -176,7 +179,7 @@ def root():
 ```
 As you can see here, we return a Python dictionary (`{...}`) and FastAPI serializes it to JSON. (JSON is the most common API response format, but not the only one.)
 
-> Please use PyCharm, VS Code, or any other IDE for this lab. Jupyter notebooks are not ideal for running a FastAPI server with Uvicorn.
+> Please use PyCharm, VS Code or any other IDE for this lab. Jupyter notebooks are not ideal for running a FastAPI server with Uvicorn.
 
 Lets define another endpoint, `/books`
 
@@ -211,3 +214,117 @@ Now, if we open the browser and go to `http://localhost:8000/books`, we should s
 _(To be continued; will be updated soon)_
 
 ---
+
+## Working with Data
+
+So far, we have seen how to make an API server, make a couple of endpoints and run it.
+It's good so far, but to make a real API server, we need to work with data. For this, we will use Pandas.
+
+### Dataframes
+
+Pandas is a popular Python library for working with data. It provides a lot of useful features for data analysis and manipulation. 
+And it can read/write data from/to a variety of formats, including CSV, JSON, Excel and many others.
+
+For tabular data, Pandas provides a `DataFrame` object. Lets begin this example by reading a sample CSV file from the internet (Goodreads reviews dataset).
+
+```python
+import pandas as pd
+df = pd.read_csv("https://github.com/zygmuntz/goodbooks-10k/blob/master/samples/books.csv")
+```
+
+> Since you are coming from a relational database background, you may be familiar with the concept of a **table**.
+> A `DataFrame` is a table in Pandas. The reason why we use `DataFrame` instead of a table is that it's a more flexible data structure and much easier to work with.
+
+
+Using this dataframe, we can easily filter the data and return a subset of the data.
+For example, let's return all the books with a price less than 100:
+
+```python
+dfFiltered = df[df['average_rating']>=4.5]
+```
+
+Now, we have a data source, so it would take a little time to establish the API endpoints. 
+And yes, since we are using Pandas, we can use the `to_dict()` method to convert the dataframe to a Python dictionary for JSON compatibility.
+
+```python
+@app.get("/books")
+def return_books():
+    return df.to_dict(orient="records")
+
+@app.get("/books/{bookId}")
+def return_book(bookId: int):
+    return df[df["book_id"]==bookId].to_dict(orient="records")
+```
+
+Now, if we go to `http://localhost:8000/books`, we should see all the books. Similarly, if we go to `http://localhost:8000/books/43`, we should see the respective book:
+```js
+[
+  {
+    "book_id": 43,
+    ...
+    "isbn": "142437204",
+    ..
+    "authors": "Charlotte Brontë, Michael Mason",
+    "original_publication_year": 1847.0,
+    "original_title": "Jane Eyre",
+    "title": "Jane Eyre",
+    "language_code": "eng",
+    "average_rating": 4.1,
+    "ratings_count": 1198557,
+    .....
+  }
+]
+```
+
+#### Query Parameters
+
+We can also use query parameters to filter the data. For example, if we want to filter the books by a particular author or language.
+For query parameters, we can use the `Query()` decorator from FastAPI.
+> It would be useful to import `Typing` library. We will soon need it. 
+
+Now let's update the `/books` endpoint with query parameter, `author`:
+
+```python
+from fastapi import Query #No need to explicitly call it if you have imported it with *
+@app.get("/books")
+def return_books(
+    author: str = Query(...)
+):
+    dfFiltered = df[df['authors'].str.contains(author)]
+    return dfFiltered.to_dict(orient="records")
+
+```
+
+And now we can test this endpoint. Open the url, [http://127.0.0.1:8000/books?author=Orwell](/books?author=Orwell) and you will be able to find his couple of classics.
+
+In some cases, we may want to use a list of values for a query parameter. For example, if we want to filter the books by a list of authors.
+In this case, we can use the `Query()` decorator with `List()` as the type.
+
+Now, let's suppose we want to add some more filters, like the language or the year of publication. 
+For such an optional parameters, we can use `Optional()` as the type. Lets see the endpoint signatures with optional parameters:
+
+```python
+from fastapi import Query
+from typing import Optional
+@app.get("/books")
+def return_books(
+    author: str = Query(...),
+    language: Optional[str] = Query('eng'),
+    year1: Optional[int] = Query(1800),
+    year2: Optional[int] = Query(2025)
+):
+```
+
+Since we have some optional parameters, we need to create different `if` cases to handle them (you can find the whole example under `example2.py`).
+
+> Please note that the `df` object is a **view** of the original dataframe.
+> Any changes to the `dfFiltered` object will also be reflected in the original dataframe.
+
+(_To be continued; will be updated soon_)
+
+---
+
+## Excercises
+
+Try adding some more endpoints and filters. Lab task will be posted 20 Sep around 10AM.
+
