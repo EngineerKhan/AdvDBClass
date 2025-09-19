@@ -225,7 +225,7 @@ It's good so far, but to make a real API server, we need to work with data. For 
 Pandas is a popular Python library for working with data. It provides a lot of useful features for data analysis and manipulation. 
 And it can read/write data from/to a variety of formats, including CSV, JSON, Excel and many others.
 
-For tabular data, Pandas provides a `DataFrame` object. Lets begin this example by reading a sample CSV file from the internet (Goodreads reviews dataset).
+For tabular data, Pandas provides a `DataFrame` object. Let's begin this example by reading a sample CSV file from the internet (Goodreads reviews dataset).
 
 ```python
 import pandas as pd
@@ -237,7 +237,7 @@ df = pd.read_csv("https://github.com/zygmuntz/goodbooks-10k/blob/master/samples/
 
 
 Using this dataframe, we can easily filter the data and return a subset of the data.
-For example, let's return all the books with a price less than 100:
+For example, let's return all the books with a rating higher than 4.5:
 
 ```python
 dfFiltered = df[df['average_rating']>=4.5]
