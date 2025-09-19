@@ -11,6 +11,11 @@ app = FastAPI()
 async def root():
     return {"message": "In the Name of Allah"}
 
+@app.get("/photos")
+def dummyphotos():
+    return {"message": "Here are some photos"}
+
+
 @app.get("/healthz")
 async def healthz():
     return {"status": "ok"}
