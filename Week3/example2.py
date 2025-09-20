@@ -1,5 +1,7 @@
 from fastapi import *
 import pandas as pd
+from fastapi.encoders import jsonable_encoder
+from bson import ObjectId
 
 CSV_URL = "https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/refs/heads/master/samples/books.csv"
 df = pd.read_csv(CSV_URL)
@@ -34,3 +36,31 @@ def return_books(
         mask = mask_author & mask_year
 
     return df[mask].to_dict(orient="records")
+
+import os
+from motor.motor_asyncio import AsyncIOMotorClient
+from dotenv import load_dotenv
+load_dotenv()
+
+def getDataConnection():
+
+    MONGO_URL = os.getenv("MONGO_URL")
+    MONGO_DB = os.getenv("MONGO_DB", "bookstore")
+
+    _client: AsyncIOMotorClient | None = None
+    mongoClient = AsyncIOMotorClient(MONGO_URL)
+    db = mongoClient[MONGO_DB]
+
+    return db
+
+@app.get("/booksMongo")
+async def return_books_mongo(limit: int = Query(100, ge=1, le=1000)):
+    db = getDataConnection()
+    booksCollection = db.books
+
+    cursor = booksCollection.find().limit(limit)
+
+    docs = await cursor.to_list(length=limit)
+    docs = jsonable_encoder(docs, custom_encoder={ObjectId: str})
+
+    return docs

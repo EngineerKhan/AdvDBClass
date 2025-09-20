@@ -211,16 +211,14 @@ Now, if we open the browser and go to `http://localhost:8000/books`, we should s
 ]
 ```
 
-_(To be continued; will be updated soon)_
-
 ---
 
-## Working with Data
+# Working with Data
 
 So far, we have seen how to make an API server, make a couple of endpoints and run it.
 It's good so far, but to make a real API server, we need to work with data. For this, we will use Pandas.
 
-### Dataframes
+## Dataframes
 
 Pandas is a popular Python library for working with data. It provides a lot of useful features for data analysis and manipulation. 
 And it can read/write data from/to a variety of formats, including CSV, JSON, Excel and many others.
@@ -276,7 +274,7 @@ Now, if we go to `http://localhost:8000/books`, we should see all the books. Sim
 ]
 ```
 
-#### Query Parameters
+### Query Parameters
 
 We can also use query parameters to filter the data. For example, if we want to filter the books by a particular author or language.
 For query parameters, we can use the `Query()` decorator from FastAPI.
@@ -322,9 +320,89 @@ Since we have some optional parameters, we need to create different `if` cases t
 
 (_To be continued; will be updated soon_)
 
+## MongoDB
+
+MongoDB is the core part of our course. Lets round up the lab by making an API server for a bookstore using MongoDB.
+We will be able to make this database quickly in a few steps:
+
+1. Create a database named `bookstore` in MongoDB and add a collection (it asks for the default collection) named `books` in the database.
+3. Download the books CSV from the aforementioned Github repository.
+4. Use the "Import" option from MongoDB Compass to import the downloaded CSV.
+
+![SS-ImportingCSV.png](SS-ImportingCSV.png)
+
+And we are done. Now, we can use the MongoDB Compass to query the data and can see that whole data is seamlessly converted/stored into JSON format.
+
+Now, all we need to do is to connect the API server with MongoDB.
+
+### Connecting with MongoDB
+
+FastAPI (or any Python library) pairs well with MongoDB via the **Motor** async driver.
+
+We can install the required libraries using:
+
+```bash
+pip install motor python-dotenv
+```
+
+Create `.env` (its already in the repo):
+```env
+MONGO_URL=mongodb://localhost:27017
+MONGO_DB=bookstore
+```
+
+Now, we can use the `MONGO_URL` and `MONGO_DB` environment variables in our code.
+
+```python
+import os
+from motor.motor_asyncio import AsyncIOMotorClient
+from dotenv import load_dotenv
+load_dotenv()
+
+def getDataConnection():
+
+    MONGO_URL = os.getenv("MONGO_URL")
+    MONGO_DB = os.getenv("MONGO_DB", "school")
+
+    _client: AsyncIOMotorClient | None = None
+    mongoClient = AsyncIOMotorClient(MONGO_URL)
+    db = mongoClient[MONGO_DB]
+
+    return db
+```
+
+Now, we can use the `getDataConnection()` function to get the database connection and use it in our API server.
+To get all the books from the collection, we can use:
+
+```python
+
+@app.get("/booksMongo")
+async def return_books_mongo(limit: int = Query(100, ge=1, le=1000)):
+    db = getDataConnection()
+    booksCollection = db.books
+
+    cursor = booksCollection.find().limit(limit)
+
+    docs = await cursor.to_list(length=limit)
+    docs = jsonable_encoder(docs, custom_encoder={ObjectId: str})
+    
+    return docs
+```
+
+It will be returning the books the same way our earlier endpoint (`/books`) was returning from the CSV file/dataframe.
+Now I leave it to you to try it out and add query parameters or so. I have deliberately kept both CSV and MongoDB endpoints (didn't even reorder the imports) for you to compare. You can cleanup the code later on as per your convenience.
+
+> If you are having some issues with setting the environment variables, you can use the `export` command.
+> For example, `export MONGO_URL=mongodb://localhost:27017`. 
+
 ---
 
 ## Excercises
 
-Try adding some more endpoints and filters. Lab task will be posted 20 Sep around 10AM.
+- Try adding some more endpoints and filters. 
+- Try some more MongoDB collections.
+
+Lab task will be posted 20 Sep around 10AM. (posted already!)
+
+_Last Updated: 20 Sep 2023, 10:17 AM_
 

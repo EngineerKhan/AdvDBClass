@@ -1,6 +1,6 @@
 
 
-# Lab Task 01 — Build a MongoDB‑backed Book API (GoodBooks‑10k)
+# Assignment 01 — Build a MongoDB‑backed Book API (GoodBooks‑10k)
 
 > **Deadline:** 2021-09-27 23:59:59 UTC.
 > 
@@ -9,7 +9,7 @@
 > 
 > I have reviewed it once, found it both a good learning experience for you plus challenging and hence I am forwarding it as it is, without any modifications. There are things like Docker or MongoDB, which you may find daunting (or may not), but they are useful for so many other courses too, so I have decided to continue with this.
 > 
-> I have also added some extra points to the rubric, which I think are worth it.
+> I have also added some extra points to the rubric, which I think are worth it. And please [contact me](mailto:talha@acceleration.pk) whenever you have any questions.
 > 
 > P.S: You can use chatGPT for help, but only for help. I will take viva to ensure you know what you are doing.
 > 
