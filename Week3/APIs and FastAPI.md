@@ -280,7 +280,7 @@ We can also use query parameters to filter the data. For example, if we want to 
 For query parameters, we can use the `Query()` decorator from FastAPI.
 > It would be useful to import `Typing` library. We will soon need it. 
 
-Now let's update the `/books` endpoint with query parameter, `author`:
+Now let's update the `/books` endpoint with a query parameter, `author`:
 
 ```python
 from fastapi import Query #No need to explicitly call it if you have imported it with *
@@ -293,13 +293,13 @@ def return_books(
 
 ```
 
-And now we can test this endpoint. Open the url, [http://127.0.0.1:8000/books?author=Orwell](/books?author=Orwell) and you will be able to find his couple of classics.
+And now we can test this endpoint. Open the url, [http://127.0.0.1:8000/books?author=Orwell](/books?author=Orwell) and you will be able to find couple of his classics.
 
 In some cases, we may want to use a list of values for a query parameter. For example, if we want to filter the books by a list of authors.
 In this case, we can use the `Query()` decorator with `List()` as the type.
 
 Now, let's suppose we want to add some more filters, like the language or the year of publication. 
-For such an optional parameters, we can use `Optional()` as the type. Lets see the endpoint signatures with optional parameters:
+For such an optional parameter, we can use `Optional()` as the type. Let's see the endpoint signatures with optional parameters:
 
 ```python
 from fastapi import Query
@@ -318,22 +318,20 @@ Since we have some optional parameters, we need to create different `if` cases t
 > Please note that the `df` object is a **view** of the original dataframe.
 > Any changes to the `dfFiltered` object will also be reflected in the original dataframe.
 
-(_To be continued; will be updated soon_)
-
 ## MongoDB
 
-MongoDB is the core part of our course. Lets round up the lab by making an API server for a bookstore using MongoDB.
+MongoDB is the core part of our course. Let's round up the lab by making an API server for a bookstore using MongoDB.
 We will be able to make this database quickly in a few steps:
 
 1. Create a database named `bookstore` in MongoDB and add a collection (it asks for the default collection) named `books` in the database.
-3. Download the books CSV from the aforementioned Github repository.
+3. Download the books CSV from the aforementioned GitHub repository.
 4. Use the "Import" option from MongoDB Compass to import the downloaded CSV.
 
 ![SS-ImportingCSV.png](SS-ImportingCSV.png)
 
-And we are done. Now, we can use the MongoDB Compass to query the data and can see that whole data is seamlessly converted/stored into JSON format.
+And we are done. Now, we can use the MongoDB Compass to query the data; we can also see that the whole data is seamlessly converted/stored into JSON format.
 
-Now, all we need to do is to connect the API server with MongoDB.
+Now, all we need to do is connect the API server with MongoDB.
 
 ### Connecting with MongoDB
 
@@ -345,7 +343,7 @@ We can install the required libraries using:
 pip install motor python-dotenv
 ```
 
-Create `.env` (its already in the repo):
+Create `.env` (it's already in the repo):
 ```env
 MONGO_URL=mongodb://localhost:27017
 MONGO_DB=bookstore
@@ -389,8 +387,8 @@ async def return_books_mongo(limit: int = Query(100, ge=1, le=1000)):
     return docs
 ```
 
-It will be returning the books the same way our earlier endpoint (`/books`) was returning from the CSV file/dataframe.
-Now I leave it to you to try it out and add query parameters or so. I have deliberately kept both CSV and MongoDB endpoints (didn't even reorder the imports) for you to compare. You can cleanup the code later on as per your convenience.
+It will return the books the same way our earlier endpoint (`/books`) was returning from the CSV file/dataframe.
+Now I leave it to you to try it out and add query parameters or so. I have deliberately kept both CSV and MongoDB endpoints (didn't even reorder the imports) for you to compare. You can clean up the code later on as per your convenience.
 
 > If you are having some issues with setting the environment variables, you can use the `export` command.
 > For example, `export MONGO_URL=mongodb://localhost:27017`. 
