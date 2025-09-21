@@ -16,7 +16,7 @@ For example, the server is sending a simple JSON object with 2 fields, name and 
 The client should expect these fields (names and types) — the order of keys doesn’t matter.
 
 Server's side:
-```js
+```json
 {
     "name": "John",
     "age": 25
@@ -24,7 +24,7 @@ Server's side:
 ```
 
 Client's side:
-```js
+```json
 {
 "name": "John",
 "age": 25
