@@ -255,7 +255,7 @@ def return_book(bookId: int):
 ```
 
 Now, if we go to `http://localhost:8000/books`, we should see all the books. Similarly, if we go to `http://localhost:8000/books/43`, we should see the respective book:
-```js
+```json
 [
   {
     "book_id": 43,
