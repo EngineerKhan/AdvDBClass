@@ -26,8 +26,8 @@ Server's side:
 Client's side:
 ```json
 {
-"name": "John",
-"age": 25
+    "name": "John",
+    "age": 25
 }
 ```
 
