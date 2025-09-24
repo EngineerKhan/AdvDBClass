@@ -6,6 +6,8 @@ This repository contains materials for the **Advanced Database Lab** course. It 
 
 ---
 
+Please discuss your project ideas at Talha (at) Acceleration (dot) PK
+
 ## Course Outline (Tentative; 80-90% finalized)
 
 1. **Introduction & Refresher**
