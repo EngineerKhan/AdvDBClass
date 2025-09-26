@@ -1,6 +1,6 @@
 ## Lab Task (Week 4)
 
-### Due Date: 2025-09-25
+### Due Date: ~2025-09-25~ 26th September 2025 (11:59 PM, _AoE_)
 
 ## Task
 
