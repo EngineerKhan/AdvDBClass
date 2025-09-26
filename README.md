@@ -1,60 +1,78 @@
-
-
 # Advanced Database Lab (Fall 2025-26)
 
-This repository contains materials for the **Advanced Database Lab** course. It includes lab exercises, assignments, datasets, and project guidelines.
+_Last Updated: Fri, 26 Sep_
+
+Inspired by the GitHub repo's relatively [successful experiment](https://github.com/EngineerKhan/Python-ML), I replicated the practice this fall. Quickly, it has started to grow and requires some organization. To help you navigate the repo in an easier way, I will update it a bit today.
+
+**P.S: Next week's task is already uploaded on Week5 (interim form).** 
+
+## Course Objective
+
+Data is everywhere and so are databases. This course is one of a kind, where you have the luxury of learning a lot of emerging technologies. Also, its a course which is offered here for the first time (_to the best of my knowledge_) – a fact enough to give an extra motivation to both instructor and students. Our basic goals for this course are:
+
+### Tools
+
+After this course, you should be comfortable enough to use: **MongoDB**, **Docker**, **Qdrant**, Neo4j and (_there is one more technology I am yet to finalize_).
+
+### Concepts
+
+You should be able to think comfortably in SQL (which you probably already do) as well as beyond SQL. APIs, JSONs, etc. shouldn't be just a familiar thing for you, you should be able to start thinking in them.
+
+### Analytical and other aspects
+
+This course is much more than just some concepts and technologies. By the conclusion of the course, I expect atleast 50% students to:
+
+- Develop an analytical mindset which can use any of the tools, including the LLMs, but should know what he/she's doing and why he's doing. **Why is the core part of our course!**
+  
+- Start thinking beyond the typical term projects and think of an app or website which can be a long-term investment and proper product for you.
+
+> _"Computers are useless, they can only give answers."_ – Pablo Picasso
+
+---
+
+## FAQs
+
+1. I am not good at Python programming, can I still take this course?
+
+A: Yes! You can use some other programming language of your choice. I have already seen Java and JavaScript developers in this course so far.
+
+2. I am not good at any programming language, can I still take this course?
+
+A: Yes! It will require a considerable effort from you, though.
+
+3. I wasn't good at DB-I course, can I understand the concepts now?
+
+A: Yes! Almost all the contents until mid (and maybe a couple of weeks afterwards too) don't rely much on the RDBMS knowledge. You will have to learn it inevitably, but can do it in the parallel (without interrupting this course).
+
+4. Can I use chatGPT?
+
+A: Yes and no. Its acceptable if you wanna use chatGPT as an assistant. But if you are switching your brain off and using chatGPT blindly, this course is not for you.
+
+5. How can we contact you?
+
+A: Please email me: Talha (at) Acceleration (dot) pk (**please don't use chatGPT to write me emails**).
+
+6. What is the plagiarism policy?
+
+A: Plagiarism refers to copying someone's work without attribution. You can use someone's work in some part of the code, but **should fully attribute it and explain why you needed to use it**. Similarly, if you use chatGPT to write some code, mention it explicitly.
+
+
 
 ---
 
 Please discuss your project ideas at Talha (at) Acceleration (dot) PK
 
-## Course Outline (Tentative; 80-90% finalized)
-
-1. **Introduction & Refresher**
-   - Relational databases recap
-   - SQL review
-   - Transactions and concurrency basics
-
-2. **NoSQL Databases**
-   - Document stores (MongoDB)
-   - Key-value stores
-   - Columnar databases
-
-3. **Cloud Databases & APIs**
-   - Connecting databases with APIs
-   - Cloud-hosted DBs (maybe)
-
-4. **Vector Databases**
-   - Introduction to embeddings
-   - Working with MyScale, Qdrant
-   - Applications in RAG (Retrieval-Augmented Generation)
-
-5. **Performance & Optimization**
-   - Indexing strategies
-   - Query optimization
-   - Benchmarking
-
-6. **Transactions & Advanced Features**
-   - Isolation levels
-   - Deadlocks & concurrency handling
-   - Triggers, stored procedures, views
-
-7. **Capstone Project**
-   - Group-based semester-long project
-   - Integration with mobile/web development courses
-
 ---
 
-##  Schedule (Tentative)
+## Course Outline (uptil Mids)
 
-| Week | Topic                                                       | Deliverables         | Notes |
-|------|-------------------------------------------------------------|----------------------|-------|
-| 1    | Refresher: SQL, Stored Procedures, Triggers, SQL Injections |                      |
-| 2    | Postgres and MongoDB                                        |                      |
-| 3    | APIs                                                        | Assignment 1         |
-| 4    | Vector Databases                                            | Lab 1                |
-| 5    | Performance & Optimization                                  | Lab 2                |
-| 6    | Transactions & Advanced Features                            | Assignment 2         |
+- Refresher (transactions, procedures, views)
+- [MongoDB](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week2)
+- [APIs](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week3)
+- [Vector DBs](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week4)
+- Unstructured Search
+- Couple of other topics
+
 
 
 ---
@@ -85,20 +103,9 @@ Please discuss your project ideas at Talha (at) Acceleration (dot) PK
 | Final Project           | 40%    |
 | Participation & Quizzes | 25%    |
 
----
-
-## Repository Structure
-
-```
-/labs          → Weekly lab exercises
-/assignments   → Assignments
-/projects      → Project proposals & final submissions
-/datasets      → Shared datasets
-/docs          → Additional resources
-```
 
 ---
 
-## 📧 Contact & Support
+## Contact & Support
 
 For questions, use the [feedback form](https://forms.cloud.microsoft/r/HJcN3zYDZQ) or reach out to the instructor during office hours.
