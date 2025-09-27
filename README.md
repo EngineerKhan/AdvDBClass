@@ -1,14 +1,19 @@
 # Advanced Database Lab (Fall 2025-26)
 
-_Last Updated: Fri, 26 Sep_
+_Last Updated: Sat, 27 Sep_
 
-Inspired by the GitHub repo's relatively [successful experiment](https://github.com/EngineerKhan/Python-ML), I replicated the practice this fall. Quickly, it has started to grow and requires some organization. To help you navigate the repo in an easier way, I will update it a bit today.
 
-**P.S: Next week's task is already uploaded on Week5 (interim form).** 
+![SS-ImportingCSV.png](https://www.explainxkcd.com/wiki/images/5/5f/exploits_of_a_mom.png "Exploits of a Mom - XKCD")
+
+*Exploits of a Mom - [Source: [XKCD](https://bobby-tables.com/)]*
+
+Inspired by the GitHub repo's relatively [successful experiment](https://github.com/EngineerKhan/Python-ML), I replicated the practice this fall. Quickly, it has started to grow and requires some organization. To help you navigate the repo in an easier way, I will keep updating it.
+
+**P.S: Next week's task (in an interim form) is already uploaded on Week 5. Project ideas will be available in the Appendix.** 
 
 ## Course Objective
 
-Data is everywhere and so are databases. This course is one of a kind, where you have the luxury of learning a lot of emerging technologies. Also, its a course which is offered here for the first time (_to the best of my knowledge_) – a fact enough to give an extra motivation to both instructor and students. Our basic goals for this course are:
+Data is everywhere and so are databases. This course is one of a kind, where you have the luxury of learning a lot of emerging technologies. Also, it's a course which is offered here for the first time (_to the best of my knowledge_) – a fact enough to give an extra motivation to both instructor and students. Our basic goals for this course are:
 
 ### Tools
 
@@ -16,15 +21,15 @@ After this course, you should be comfortable enough to use: **MongoDB**, **Docke
 
 ### Concepts
 
-You should be able to think comfortably in SQL (which you probably already do) as well as beyond SQL. APIs, JSONs, etc. shouldn't be just a familiar thing for you, you should be able to start thinking in them.
+You should be able to think comfortably in SQL (which you probably already do) as well as beyond SQL. APIs, JSONs, etc., shouldn't be just a familiar thing for you; you should be able to start thinking in them.
 
 ### Analytical and other aspects
 
-This course is much more than just some concepts and technologies. By the conclusion of the course, I expect atleast 50% students to:
+This course is much more than just some concepts and technologies. By the conclusion of the course, I expect at least 50% students to:
 
-- Develop an analytical mindset which can use any of the tools, including the LLMs, but should know what he/she's doing and why he's doing. **Why is the core part of our course!**
+- Develop an analytical mindset that can use any of the tools, including the LLMs, but should know what he/she's doing and why they're doing it. **Why is the core part of our course!**
   
-- Start thinking beyond the typical term projects and think of an app or website which can be a long-term investment and proper product for you.
+- Start thinking beyond the typical term projects and think of an app or website that can be a long-term investment and a proper product for you.
 
 > _"Computers are useless, they can only give answers."_ – Pablo Picasso
 
@@ -32,21 +37,21 @@ This course is much more than just some concepts and technologies. By the conclu
 
 ## FAQs
 
-1. I am not good at Python programming, can I still take this course?
+1. I am not good at Python programming. Can I still take this course?
 
-A: Yes! You can use some other programming language of your choice. I have already seen Java and JavaScript developers in this course so far.
+A: Yes! You can use any other programming language of your choice. I have already seen Java and JavaScript developers in this course so far.
 
-2. I am not good at any programming language, can I still take this course?
+2. I am not good at any programming language. Can I still take this course?
 
 A: Yes! It will require a considerable effort from you, though.
 
-3. I wasn't good at DB-I course, can I understand the concepts now?
+3. I wasn't good at the DB-I course. Can I understand the concepts now?
 
 A: Yes! Almost all the contents until mid (and maybe a couple of weeks afterwards too) don't rely much on the RDBMS knowledge. You will have to learn it inevitably, but can do it in the parallel (without interrupting this course).
 
 4. Can I use chatGPT?
 
-A: Yes and no. Its acceptable if you wanna use chatGPT as an assistant. But if you are switching your brain off and using chatGPT blindly, this course is not for you.
+A: Yes and no. It's acceptable if you wanna use chatGPT as an assistant. But if you are switching your brain off and using chatGPT blindly, this course is not for you.
 
 5. How can we contact you?
 
@@ -64,14 +69,14 @@ Please discuss your project ideas at Talha (at) Acceleration (dot) PK
 
 ---
 
-## Course Outline (uptil Mids)
+## Course Outline (until Mids)
 
 - Refresher (transactions, procedures, views)
 - [MongoDB](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week2)
 - [APIs](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week3)
 - [Vector DBs](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week4)
 - Unstructured Search
-- Couple of other topics
+- A couple of other topics
 
 
 
