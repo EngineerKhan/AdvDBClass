@@ -1,6 +1,6 @@
 # Advanced Database Lab (Fall 2025-26)
 
-_Last Updated: Sat, 27 Sep_
+_Last Updated: Mon, 29 Sep_
 
 
 ![SS-ImportingCSV.png](https://www.explainxkcd.com/wiki/images/5/5f/exploits_of_a_mom.png "Exploits of a Mom - XKCD")
@@ -10,6 +10,8 @@ _Last Updated: Sat, 27 Sep_
 Inspired by the GitHub repo's relatively [successful experiment](https://github.com/EngineerKhan/Python-ML), I replicated the practice this fall. Quickly, it has started to grow and requires some organization. To help you navigate the repo in an easier way, I will keep updating it.
 
 **P.S: Next week's task (in an interim form) is already uploaded on Week 5. Project ideas will be available in the Appendix.** 
+
+**UPDATE 29 Sep: This week's notes are [uploaded](https://github.com/EngineerKhan/AdvDBClass/blob/main/Week5/Hybrid%20Search.md).**
 
 ## Course Objective
 
