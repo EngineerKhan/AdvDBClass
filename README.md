@@ -1,13 +1,13 @@
 # Advanced Database Lab (Fall 2025-26)
 
-_Last Updated: Mon, 29 Sep_
+_Last Updated: Tue, 30 Sep_
 
 
 ![SS-ImportingCSV.png](https://www.explainxkcd.com/wiki/images/5/5f/exploits_of_a_mom.png "Exploits of a Mom - XKCD")
 
 *Exploits of a Mom - [Source: [XKCD](https://bobby-tables.com/)]*
 
-Inspired by the GitHub repo's relatively [successful experiment](https://github.com/EngineerKhan/Python-ML), I replicated the practice this fall. Quickly, it has started to grow and requires some organization. To help you navigate the repo in an easier way, I will keep updating it.
+Inspired by the GitHub repo's relatively [successful experiment](https://github.com/EngineerKhan/Python-ML), I replicated the practice this fall. Quickly, it has started to grow and requires some organization. To help you navigate the repo more easily, I will keep updating it.
 
 **P.S: Next week's task (in an interim form) is already uploaded on Week 5. Project ideas will be available in the Appendix.** 
 
@@ -77,8 +77,11 @@ Please discuss your project ideas at Talha (at) Acceleration (dot) PK
 - [MongoDB](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week2)
 - [APIs](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week3)
 - [Vector DBs](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week4)
-- Unstructured Search
-- A couple of other topics
+- Hybrid Search, Elastic Search
+- RAG
+
+> **Mids lab will be done without any internet access, so please get your hands dirty on these topics asap. In week 6, I won't teach any new topic and will just help you practice these concepts. In return, I will expect you to be able to perform mid's task independently without any internet**.
+
 
 
 
@@ -93,9 +96,9 @@ Please discuss your project ideas at Talha (at) Acceleration (dot) PK
   - Implementation of **transactions/concurrency** in some form.
   - A **live website/app** at the end (_live means live; for a mobile app, beta version is also acceptable_).
 
-- **Search Capabilities**: Must feature both normal and semantic search.
+- **Search Capabilities**: Must feature both normal and semantic search (in other words, hybrid search).
 - **Scope**: Must be **realistic** (e.g., not a toy project).
-- **No existing datasets**: Should get real data by **scraping**.
+- ~**No existing datasets**: Should get real data by **scraping**.~ (Removed this restriction)
 - **Bonus Points**: AI Integration.
 
 
