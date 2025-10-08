@@ -1,0 +1,7 @@
+History of Retrieval-Augmented Generation (RAG) - Modern EraEarly Integration and Neural Networks (2000s-2010s):- Question-Answering Systems:
+    Projects like IBM Watson's DeepQA (2007–2011) marked a shift by using retrieval to gather information and statistical models to generate answers, though in a pipeline fashion.
+    - Neural Networks: The development of Transformers and dense retrieval techniques (like embeddings-based search) in the 2010s accelerated the integration,
+    showing the potential for hybrid architectures.The Emergence of RAG:The formalization of Retrieval-Augmented Generation as a distinct paradigm came with
+     the landmark paper "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" by **Patrick Lewis and colleagues in 2020** (from Facebook AI Research, UCL, and NYU).
+     This paper proposed a unified framework where an external retriever fetches relevant documents, and a generative model (like T5) conditioned on this retrieved knowledge produces a response.
+     This directly addressed LLM challenges such as hallucinations and outdated knowledge without needing a full model retraining.

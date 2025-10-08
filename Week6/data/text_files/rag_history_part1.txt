@@ -1,0 +1,6 @@
+History of Retrieval-Augmented Generation (RAG) - FoundationsThe concept of RAG is a culmination of decades of
+    research in two distinct fields: Information Retrieval (IR) and Natural Language Generation (NLG).Early Foundations (1950s-1990s):-
+    Information Retrieval: Researchers like Hans Peter Luhn and Gerald Salton laid the groundwork with systems like vector space models and TF-IDF to retrieve relevant documents.
+    - Natural Language Generation: Early efforts in machine translation and grammar-based text generation began, followed by statistical language models like n-grams (1980s-1990s) in the NLG space.
+    Initially, IR and NLG largely operated as separate disciplines. The history of question-answering systems, dating back to the 1960s with programs like SHRDLU and Baseball,
+    also laid a conceptual foundation for combining retrieval and response.
