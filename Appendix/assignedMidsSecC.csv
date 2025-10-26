@@ -1,35 +1,35 @@
 Roll Number,Name,assignedExam, classParticipation, vivaMarks, midTermMarks
-FA23-BCS-011,Abdul Ahad,C
-FA23-BCS-015,Abdul Moiz,B,7,8.5
-FA23-BCS-019,Abdullah Khalid,D,9,10
-FA23-BCS-020,Abeera Amir,A,8,7
-FA23-BCS-030,Amna Khan,A
-FA23-BCS-038,Ayemish Mushtaq,C
-FA23-BCS-051,Fatima Noor,A
-FA23-BCS-054,Ghusharib Najam,D
-FA23-BCS-071,Laiba Afzal,C
-FA23-BCS-075,Laiba Khan,E
+FA23-BCS-011,Abdul Ahad,C,D,D,D
+FA23-BCS-015,Abdul Moiz,B,7,8.5,D
+FA23-BCS-019,Abdullah Khalid,D,9,10,D
+FA23-BCS-020,Abeera Amir,A,8,7,D
+FA23-BCS-030,Amna Khan,A,D,D,D
+FA23-BCS-038,Ayemish Mushtaq,C,D,D,D
+FA23-BCS-051,Fatima Noor,A,D,D,D
+FA23-BCS-054,Ghusharib Najam,D,D,D,D
+FA23-BCS-071,Laiba Afzal,C,D,D,D
+FA23-BCS-075,Laiba Khan,E,D,D,D
 FA23-BCS-080,Mahrukh Musharaf,E,8,9,9
-FA23-BCS-085,Minal Kashif,C,8,9
-FA23-BCS-088,Usman Bukhari,C
-FA23-BCS-092,Muhammad Abdullah,D,9,10
-FA23-BCS-096,Ahmad Javed,C
-FA23-BCS-108,Muhammad Faisal,C
-FA23-BCS-112,Hamza Azeem,E
-FA23-BCS-120,Muhammad Hussain,E
+FA23-BCS-085,Minal Kashif,C,8,9,D
+FA23-BCS-088,Usman Bukhari,C,D,D,D
+FA23-BCS-092,Muhammad Abdullah,D,9,10,D
+FA23-BCS-096,Ahmad Javed,C,D,D,D
+FA23-BCS-108,Muhammad Faisal,C,D,D,D
+FA23-BCS-112,Hamza Azeem,E,D,D,D
+FA23-BCS-120,Muhammad Hussain,E,D,D,D
 FA23-BCS-132,Muhammad Taha,A,8,9,8.5
-FA23-BCS-136,Muhammad Umar Ejaz,B
-FA23-BCS-140,Muhammad Waqas,D
-FA23-BCS-145,Murad Lodhi,E
+FA23-BCS-136,Muhammad Umar Ejaz,B,D,D,D
+FA23-BCS-140,Muhammad Waqas,D,D,D,D
+FA23-BCS-145,Murad Lodhi,E,D,D,D
 FA23-BCS-153,Saira Saeed,C,9,9,8.5
-FA23-BCS-157,Sharjeel Khan,C,0
-FA23-BCS-170,Zaid Ali,D
-FA23-BCS-177,Aleesha Ghazanfar,B
-FA23-BCS-183,Faizan Ehsan,A
-FA23-BCS-184,Faria Zia,B
-FA23-BCS-188,Minahil Mustafa,B
-FA23-BCS-198,Meesam Zaheer,A
-FA23-BCS-202,Gull e Zahra,C
-FA23-BCS-204,Ahad Usman,E
-FA23-BCS-208,Muhammad Saffi,D,0
-FA23-BCS-213,Maham Shahid,E
+FA23-BCS-157,Sharjeel Khan,C,0,D,D
+FA23-BCS-170,Zaid Ali,D,D,D,D
+FA23-BCS-177,Aleesha Ghazanfar,B,D,D,D
+FA23-BCS-183,Faizan Ehsan,A,D,D,D
+FA23-BCS-184,Faria Zia,B,D,D,D
+FA23-BCS-188,Minahil Mustafa,B,D,D,D
+FA23-BCS-198,Meesam Zaheer,A,D,D,D
+FA23-BCS-202,Gull e Zahra,C,D,D,D
+FA23-BCS-204,Ahad Usman,E,D,D,D
+FA23-BCS-208,Muhammad Saffi,D,0,D,D
+FA23-BCS-213,Maham Shahid,E,D,D,D
