@@ -53,16 +53,16 @@ The same join in MongoDB would be:
 
 ```json
 [
-  {
-    $lookup: {
-      from: "flights",
-      localField: "origin",
-      foreignField: "code",
-      as: "airportInfo"
-    }
-  },
-  { $unwind: "$airportInfo" },
-  { $project: { origin: 1, city: "$airportInfo.city", country: "$airportInfo.country" } }
+  {
+    $lookup: {
+      from: "flights",
+      localField: "origin", 
+      foreignField: "code", 
+      as: "airportInfo"
+    }
+  }, 
+  { $unwind: "$airportInfo" }, 
+  { $project: { origin: 1, city: "$airportInfo.city", country: "$airportInfo.country" } }
 ]
 ```
 
