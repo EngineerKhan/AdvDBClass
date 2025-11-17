@@ -55,7 +55,7 @@ I am using here (a subset of) the real flights data we use in our app and beginn
 ]
 ```
 
-![](MongoDB Blog/Screenshot%202025-11-17%20at%206.18.22%E2%80%AFPM.png)
+![](mongoBlog/output1.png)
 
 Now, I would try some examples in a [curriculum learning](https://en.wikipedia.org/wiki/Curriculum_learning) manner, building them incremently.
 
@@ -72,7 +72,7 @@ Being an aviation geek, I would be naturally curious to check which flights fly 
 }
 ```
 
-![Emirates has a lion's share in the A380s](MongoDB Blog/Screenshot%202025-11-17%20at%206.24.04%E2%80%AFPM.png)
+![Emirates has a lion's share in the A380s](mongoBlog/output2.png)
 
 **Example 2: A350-1000 flights for Qatar Airways**
 
@@ -140,7 +140,7 @@ Since we are grouping on the airline, so there will be a single aggregated outpu
     }
   }
 ```
-![_id in $group enables us to group by different attributes](MongoDB Blog/Screenshot%202025-11-17%20at%207.12.50%E2%80%AFPM.png)
+![_id in $group enables us to group by different attributes](mongoBlog/output3.png)
 
 ### `$match` as HAVING clause
 
@@ -157,7 +157,7 @@ I just want to see those airports which have atleast 2 flights for this aicraft+
 }
 ```
 
-![$match can be used both for SQL's WHERE and HAVING counterparts](MongoDB Blog/Screenshot%202025-11-17%20at%207.21.00%E2%80%AFPM.png)
+![$match can be used both for SQL's WHERE and HAVING counterparts](mongoBlog/output4.png)
 
 ---
 
@@ -208,7 +208,7 @@ Its pretty self-explanatory. If we use it, our whole pipeline JSON would be:
 
 If you look closely at the results, they will show `originDetails` as an `Array`. We can expand it and see the whole airport object.
 
-![The joined Array is a complete airport object](MongoDB Blog/Screenshot%202025-11-17%20at%207.44.27%E2%80%AFPM.png)
+![The joined Array is a complete airport object](mongoBlog/output5.png)
 
 If we want to see any of the airports' attribute, like city or country name, we have to flatten it using `$unwind`. 
 After unwinding it, we can select the foreign collection's attributes as well.
@@ -229,7 +229,7 @@ After unwinding it, we can select the foreign collection's attributes as well.
   }
 ```
 
-![](MongoDB Blog/Screenshot%202025-11-17%20at%207.53.52%E2%80%AFPM.png)
+![](mongoBlog/output6.png)
 
 ### `$unwind`
 
