@@ -51,7 +51,7 @@ ON r.origin = a.code;
 
 The same join in MongoDB would be:
 
-```json
+```jsx
 [
   {
     $lookup: {
