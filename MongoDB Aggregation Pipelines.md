@@ -14,7 +14,7 @@ Here, a couple of things are worthy of attention.
 1. These pipelines aren’t restricted to aggregation functions – we can have a purely *normal* pipeline (one without any aggregation function, having simple queries).
 2. We can nicely break down complex operations into sequential stages
 
-## Basic Operators
+## Basic Operators and Examples
 
 I will make sure to not make it a cheatsheet of operators and keep it relevant. It's always useful to have a table showing the SQL equivalents.
 
@@ -27,44 +27,209 @@ I will make sure to not make it a cheatsheet of operators and keep it relevant. 
 | **ORDER BY** | `$sort`    |
 | **UNION**    | `$unionWith`|
 
----
+
 
 
 ### `$project`
 
 The most basic operation, `$project` is similar to SELECT in SQL. We can specify the columns we want by setting them as 1.
 
-> 💡1 and -1 are respectively used to declare a condition as true or false.
+> 1 and -1 are respectively used to declare a condition as true or false. 
 
-### `$lookup`
-
-Lookup is used for SQL JOIN. 
-
-Like, I am joining the flights table to airports one as:
-
-```sql
-SELECT r.origin, a.city, a.country
-FROM routes r
-JOIN airports a
-ON r.origin = a.code;
-```
-
-The same join in MongoDB would be:
+Now let's put it into practice. 
+I am using here (a subset of) the real flights data we use in our app and beginning by simply selecting a few attributes.
 
 ```jsx
 [
   {
-    $lookup: {
-      from: "flights",
-      localField: "origin", 
-      foreignField: "code", 
-      as: "airportInfo"
+    $project: {
+        origin: 1, 
+        destination: 1, 
+        flightCode: 1, 
+        airline: 1, 
+        aircraft: 1, 
+        distance: 1, 
+        duration: 1,
     }
-  }, 
-  { $unwind: "$airportInfo" }, 
-  { $project: { origin: 1, city: "$airportInfo.city", country: "$airportInfo.country" } }
+  }
 ]
 ```
+
+![](MongoDB Blog/Screenshot%202025-11-17%20at%206.18.22%E2%80%AFPM.png)
+
+Now, I would try some examples in a [curriculum learning](https://en.wikipedia.org/wiki/Curriculum_learning) manner, building them incremently.
+
+**Example 1: Getting all flights flying A380**
+
+Being an aviation geek, I would be naturally curious to check which flights fly a certain aircraft
+– like my fav A380, so lets put `$match` to use.
+
+```jsx
+{
+    $match: {
+        aircraft: "A388"
+    }
+}
+```
+
+![Emirates has a lion's share in the A380s](MongoDB Blog/Screenshot%202025-11-17%20at%206.24.04%E2%80%AFPM.png)
+
+**Example 2: A350-1000 flights for Qatar Airways**
+
+We can add some more filters like airline, airport, etc, too. For example, this one will check all flights flying A350–1000 for Qatar Airways.
+
+```jsx
+{
+    $match: {
+        aircraft: "A35K"
+            airline: "QR"
+    }
+}
+```
+
+It will show a long list of all the flights flying this particular aircraft for Qatar. 
+Maybe, it would be even better to check the statistics directly i.e, the total flights – fulfilling these criteria – count.
+So, we will use `$group` here. 
+
+Here, I will pause and explain it a bit (this narration style is reminding me of _Thousand and One Nights_ or _Chahar Darvesh_ – albeit with a smaller stack size). I know most of you guys would be well-versed in `GROUP BY` already; having a little look on `$group` will ensure you can translate it into MongoDB as well.
+
+---
+
+### `$group`
+
+`$group` is similar to GROUP BY, but more powerful. Its basic syntax is:
+
+```jsx
+{
+  $group: {
+    _id: <expression>,     // how you want to group
+    <outputField>: { <accumulator>: <value> }
+  }
+}
+```
+
+Like `$group` in our case would be:
+
+```jsx
+{$group: {
+    _id: "$airline",
+    flightsCount: {
+      $sum: 1
+    }
+  }
+}
+```
+
+And it will simply return:
+```jsx
+{
+  _id: "A35K",
+  flightsCount: 41
+}
+```
+
+Since we are grouping on the airline, so there will be a single aggregated output (aggregation functions are nothing but summarized stats). If we try some other choice of ids, we can see some other groupings too, like:
+
+```jsx
+{
+    $group: {
+      _id: "$origin",
+      flightsCount: {
+        $sum: 1
+      }
+    }
+  }
+```
+![_id in $group enables us to group by different attributes](MongoDB Blog/Screenshot%202025-11-17%20at%207.12.50%E2%80%AFPM.png)
+
+### `$match` as HAVING clause
+
+I just want to see those airports which have atleast 2 flights for this aicraft+airline combination. We can use `$match` for `HAVING` clause here as:
+
+
+```jsx
+{
+    $match: {
+        flightsCount: {
+            $gte: 2
+        }
+    }
+}
+```
+
+![$match can be used both for SQL's WHERE and HAVING counterparts](MongoDB Blog/Screenshot%202025-11-17%20at%207.21.00%E2%80%AFPM.png)
+
+---
+
+
+### Joins using `$lookup`
+
+One of the biggest misunderstanding in my mind about MongoDB was its inability to join like SQL. 
+Turns out I was (luckily) incorrect and all we need is to _lookup_ the foreign ~~table~~ collection.
+
+In my MongoDB, I have a collection for airports and naturally, I would be curious to see respective attributes, like city's name. We can avail `$lookup` there.
+
+Lookup takes the form of:
+
+```jsx
+{
+  $lookup: {
+    from: "collection",
+    localField: "field",
+    foreignField: "field",
+    as: "resultAlias"
+  }
+}
+```
+
+Its pretty self-explanatory. If we use it, our whole pipeline JSON would be:
+
+```jsx
+[
+  {
+    $project: {
+      origin: 1,
+      destination: 1,
+      airline: 1,
+      aircraft: 1,
+      flightCode: 1
+    }
+  },
+  {
+    $lookup: {
+      from: "airports",
+      localField: "origin",
+      foreignField: "iataCode",
+      as: "originDetails"
+    }
+  }
+]
+```
+
+If you look closely at the results, they will show `originDetails` as an `Array`. We can expand it and see the whole airport object.
+
+![The joined Array is a complete airport object](MongoDB Blog/Screenshot%202025-11-17%20at%207.44.27%E2%80%AFPM.png)
+
+If we want to see any of the airports' attribute, like city or country name, we have to flatten it using `$unwind`. 
+After unwinding it, we can select the foreign collection's attributes as well.
+
+```jsx
+{
+    $unwind: "$originDetails"
+  },
+  {
+    $project: {
+      origin: 1,
+      destination: 1,
+      airline: 1,
+      aircraft: 1,
+      flightCode: 1,
+      "originDetails.city": 1
+    }
+  }
+```
+
+![](MongoDB Blog/Screenshot%202025-11-17%20at%207.53.52%E2%80%AFPM.png)
 
 ### `$unwind`
 
@@ -88,7 +253,7 @@ While it makes it easier to store the data, this design also means that joining 
 A natural question may arise that what’s the deal? Can’t we access the destinations in the compact/unnormalized form? Yes, we can access them but can’t apply aggregation over them. Unwind is specific for aggregation pipelines (otherwise `{airport: "LHE"}` will work fine). An excellent example/analogy would be an Excel file. We can’t calculate SUM(), MAX(), etc when a single cell contains multiple entries (even if they are numeric). But its doable once we “unwind” it.
 
 
-> ⚠️ `$unwind` isn’t needed when your data is already in a relational format (1:1 mapping).
+> `$unwind` isn’t needed for aggregation functions when your data is already in a relational format (1:1 mapping).
 
 
 
@@ -101,16 +266,6 @@ It's just like SQL's **`UNION`**. It simply stacks the two collections (can be t
   { $unionWith: { coll: "collectionB" } }
 ]
 ```
-
----
-
-## Use Case
-
-As you can see, I kept the operators' part pretty concise. Now let's put it into practice. I am using here (a subset of) the real flights data we use in our app.
-
-<TBC>
-
-
 
 ---
 
