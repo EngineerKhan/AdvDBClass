@@ -210,8 +210,8 @@ If you look closely at the results, they will show `originDetails` as an `Array`
 
 ![The joined Array is a complete airport object](mongoBlog/output5.png)
 
-If we want to see any of the airports' attribute, like city or country name, we have to flatten it using `$unwind`. 
-After unwinding it, we can select the foreign collection's attributes as well.
+If we want to see any of the airports' attribute, like city or country name, we can access it using the dot operator. 
+This operation is usually performed in conjuction with `$unwind` (not required in every case, as we will see).
 
 ```jsx
 {
@@ -256,6 +256,50 @@ A natural question may arise that what’s the deal? Can’t we access the desti
 > `$unwind` isn’t needed for aggregation functions when your data is already in a relational format (1:1 mapping).
 
 
+### `$arrayElemAt`
+
+For 1:1 relations (like we have in the normal relational DBs), using `$unwind` is unnecessary. Like we are sure that each airport has a single code, so we can directly refer the airport collection's attributes using `$arrayElemAt`.
+
+`$arrayElemAt` takes the form, `$arrayElemAt: ["$lookupFieldName", 0]`. So, the above example will become:
+
+```jsx
+[
+  {
+    $project: {
+      origin: 1,
+      destination: 1,
+      airline: 1,
+      aircraft: 1,
+      flightCode: 1
+    }
+  },
+  {
+    $lookup: {
+      from: "airports",
+      localField: "origin",
+      foreignField: "iataCode",
+      as: "originDetails"
+    }
+  },
+  {
+    $project: {
+      origin: 1,
+      destination: 1,
+      airline: 1,
+      aircraft: 1,
+      flightCode: 1,
+      city: {
+        $arrayElemAt: ["$originDetails.City", 0]
+      }
+    }
+  }
+]
+```
+
+Unwind, I admit, requires even more attention. So I encourage you guys to come up with a couple of good examples. 
+
+> If you are confused between the use of `$unwind` and `$arrayElemAt`, just check if you have a 1:1 relation or 1:n relation. If 1:1, go for `$arrayElemAt`. If its 1:n and if you want all the children, `$unwind` is your friend; if you need just first or last element, you can still prefer `$arrayElemAt`. 
+
 
 ### `$unionWith`
 
@@ -266,6 +310,8 @@ It's just like SQL's **`UNION`**. It simply stacks the two collections (can be t
   { $unionWith: { coll: "collectionB" } }
 ]
 ```
+
+I can't think of a relatable example in my case, so leaving it here and now will take a bit about the query optimization.
 
 ---
 
