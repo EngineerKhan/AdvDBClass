@@ -9,9 +9,11 @@ _Last Updated: Fri, 17 Oct_
 
 Inspired by the GitHub repo's relatively [successful experiment](https://github.com/EngineerKhan/Python-ML), I replicated the practice this fall. Quickly, it has started to grow and requires some organization. To help you navigate the repo more easily, I will keep updating it.
 
-**UPDATE 17 Oct: The mid-term submission and viva will be conducted next week (21 Oct onwards) as per our initial plan.** 
+**UPDATE 18 Nov: All 3 sections' results (until now) will be shared this week. Syllabus and the rest of the semester's class plans have been added.**
 
-**UPDATE 29 Sep: This week's notes are [uploaded](https://github.com/EngineerKhan/AdvDBClass/blob/main/Week5/Hybrid%20Search.md).**
+**UPDATE 17 Oct**: The mid-term submission and viva will be conducted next week (21 Oct onwards) as per our initial plan.
+
+**UPDATE 29 Sep**: This week's notes are [uploaded](https://github.com/EngineerKhan/AdvDBClass/blob/main/Week5/Hybrid%20Search.md).
 
 ## Course Objective
 
@@ -19,7 +21,7 @@ Data is everywhere and so are databases. This course is one of a kind, where you
 
 ### Tools
 
-After this course, you should be comfortable enough to use: **MongoDB**, **Docker**, **Qdrant**, Neo4j and (_there is one more technology I am yet to finalize_).
+After this course, you should be comfortable enough to use: **APIs**, **MongoDB**, **Docker**, **Qdrant**, **Semantic/Hybrid search** and Redis streams atleast.
 
 ### Concepts
 
@@ -35,87 +37,58 @@ This course is much more than just some concepts and technologies. By the conclu
 
 > _"Computers are useless, they can only give answers."_ – Pablo Picasso
 
----
+### Think Commercially
 
-## FAQs
-
-1. I am not good at Python programming. Can I still take this course?
-
-A: Yes! You can use any other programming language of your choice. I have already seen Java and JavaScript developers in this course so far.
-
-2. I am not good at any programming language. Can I still take this course?
-
-A: Yes! It will require a considerable effort from you, though.
-
-3. I wasn't good at the DB-I course. Can I understand the concepts now?
-
-A: Yes! Almost all the contents until mid (and maybe a couple of weeks afterwards too) don't rely much on the RDBMS knowledge. You will have to learn it inevitably, but can do it in the parallel (without interrupting this course).
-
-4. Can I use chatGPT?
-
-A: Yes and no. It's acceptable if you wanna use chatGPT as an assistant. But if you are switching your brain off and using chatGPT blindly, this course is not for you.
-
-5. How can we contact you?
-
-A: Please email me: Talha (at) Acceleration (dot) pk (**please don't use chatGPT to write me emails**).
-
-6. What is the plagiarism policy?
-
-A: Plagiarism refers to copying someone's work without attribution. You can use someone's work in some part of the code, but **should fully attribute it and explain why you needed to use it**. Similarly, if you use chatGPT to write some code, mention it explicitly.
-
-
+Realize the market worth of certain tools and technologies. The laborious efforts during the semester should translate into some financial rewards as well. At the start of the semester, I wanted all of you to make a project that would be useful for you beyond the semester. Now, my expectation levels have dropped and I would be happy even if 30% of your projects end up becoming some app or a useful website (expectations may slide down further with time).
 
 ---
 
-Please discuss your project ideas at Talha (at) Acceleration (dot) PK
+## Course Contents
 
----
+Now we are in a much better position to formalize the course contents. Here they are:
 
-## Course Outline (until Mids)
+### 1. APIs
 
-- Refresher (transactions, procedures, views)
-- [MongoDB](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week2)
-- [APIs](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week3)
-- [Vector DBs](https://github.com/EngineerKhan/AdvDBClass/tree/main/Week4)
-- Hybrid Search, Elastic Search
-- RAG
+APIs are the core part of our course. By the end of this semester, you all should be able to make endpoints (language and framework of your choice), call them and discern between different types of endpoints. Also, you should be able to use Postman.
 
-> **Mids lab will be done without any internet access, so please get your hands dirty on these topics asap. In week 6, I won't teach any new topic and will just help you practice these concepts. In return, I will expect you to be able to perform mid's task independently without any internet**.
+### 2. MongoDB
 
+MongoDB is also an essential part of our course. You should be able to perform basic CRUD and design aggregation pipelines.
 
+### 3. Vector Databases
 
+Vector DB is something that you probably wouldn't have studied in theory or some other course. We used them for storing embeddings for semantic search. And while I practically didn't cover it, many of you would be able to know that these vector DBs and embeddings are a core part of RAG and LLMs, enabling us to make smart chatbots (avenues are open for you to explore).
 
----
+You should be familiar working with Qdrant, semantic/hybrid search and also Redis streams*.
 
-## Project Requirements (Brief)
+### 4. Docker
 
-- **Group Project** (2-3 students per group).
-- Must demonstrate:
-  - Use of at least **two database paradigms** (e.g., SQL + NoSQL, SQL + Vector DB).
-  - Integration with **mobile/web app**.
-  - Implementation of **transactions/concurrency** in some form.
-  - A **live website/app** at the end (_live means live; for a mobile app, beta version is also acceptable_).
+### 5. OLAP
 
-- **Search Capabilities**: Must feature both normal and semantic search (in other words, hybrid search).
-- **Scope**: Must be **realistic** (e.g., not a toy project).
-- ~**No existing datasets**: Should get real data by **scraping**.~ (Removed this restriction)
-- **Bonus Points**: AI Integration.
+### 6. Graph Database
+
+### 7. Data Scraping (Optional)
+
+I won't cover it in the class. But it is a very very important tool in any data scientist's arsenal.
+
+Here, **first 4 topics are necessary – you need to be very good at them, both theoretically and practically**. 
+
+## Calendar
 
 
----
-
-## Grading Criteria
-
-| Component               | Weight |
-|-------------------------|--------|
-| Labs & Assignments      | 15%    |
-| Midterm Exam            | 20%    |
-| Final Project           | 40%    |
-| Participation & Quizzes | 25%    |
+| Week     | Topic                |
+-----------|----------------------|
+|Nov 24-30 | Aggregation Pipelines|
+|Dec 1-7 | Redis* |
+|Dec 8-14 | Docker |
+|Dec 15-21 | ClickHouse** |
+|Dec 22-28 | Neo4j |
 
 
----
+*: yet to study
 
-## Contact & Support
+**: didn't properly teach
 
-For questions, use the [feedback form](https://forms.cloud.microsoft/r/HJcN3zYDZQ) or reach out to the instructor during office hours.
+***: Sec A's lab is falling on a public holiday, so it will be conducted on Friday, Dec 26th.
+
+
