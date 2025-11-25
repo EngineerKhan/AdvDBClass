@@ -1,19 +1,23 @@
 # Advanced Database Lab (Fall 2025-26)
 
-_Last Updated: Fri, 17 Oct_
+_Last Updated: Tue, 25 Nov_
 
 
 ![SS-ImportingCSV.png](https://www.explainxkcd.com/wiki/images/5/5f/exploits_of_a_mom.png "Exploits of a Mom - XKCD")
 
 *Exploits of a Mom - [Source: [XKCD](https://bobby-tables.com/)]*
 
-Inspired by the GitHub repo's relatively [successful experiment](https://github.com/EngineerKhan/Python-ML), I replicated the practice this fall. Quickly, it has started to grow and requires some organization. To help you navigate the repo more easily, I will keep updating it.
+## Updates
 
-**UPDATE 18 Nov: All 3 sections' results (until now) will be shared this week. Syllabus and the rest of the semester's class plans have been added.**
+**Update 25 Nov**: I've just learnt that the semester is concluding on 12th Dec – which is pretty sad, as I was expecting it to go until the end of Dec – so, our last labs will be on Dec 9, 10 and 11 (respectively). It leaves a little time for the project, so I would ask all of you to focus entirely on your [projects](https://github.com/EngineerKhan/AdvDBClass/blob/main/Projects.md) now. 
 
-**UPDATE 17 Oct**: The mid-term submission and viva will be conducted next week (21 Oct onwards) as per our initial plan.
+_P.S: I loved teaching you all, learnt probably more from you guys (than you learnt from me), envious of the talent and professionalism of some of you and... I will definitely miss you – all of you! A bright future awaits you all._
 
-**UPDATE 29 Sep**: This week's notes are [uploaded](https://github.com/EngineerKhan/AdvDBClass/blob/main/Week5/Hybrid%20Search.md).
+**UPDATE 18 Nov**: All 3 sections' results (until now) will be shared this week. Syllabus and the rest of the semester's class plans have been added.
+
+~**UPDATE 17 Oct**: The mid-term submission and viva will be conducted next week (21 Oct onwards) as per our initial plan.~
+
+~**UPDATE 29 Sep**: This week's notes are [uploaded](https://github.com/EngineerKhan/AdvDBClass/blob/main/Week5/Hybrid%20Search.md).~
 
 ## Course Objective
 
@@ -59,15 +63,14 @@ MongoDB is also an essential part of our course. You should be able to perform b
 
 Vector DB is something that you probably wouldn't have studied in theory or some other course. We used them for storing embeddings for semantic search. And while I practically didn't cover it, many of you would be able to know that these vector DBs and embeddings are a core part of RAG and LLMs, enabling us to make smart chatbots (avenues are open for you to explore).
 
-You should be familiar working with Qdrant, semantic/hybrid search and also Redis streams*.
+You should be familiar working with **Qdrant**, semantic/hybrid search and also **Redis streams***.
 
 ### 4. Docker
 
-### 5. OLAP
+~### 5. OLAP~
+~Its theoretical side is more relevant (the practical side is just some practice of ClickHouse). I hope you guys will cover it in theory.~
 
-### 6. Graph Database
-
-### 7. Data Scraping (Optional)
+### 5. Data Scraping (Optional)
 
 I won't cover it in the class. But it is a very very important tool in any data scientist's arsenal.
 
@@ -80,15 +83,15 @@ Here, **first 4 topics are necessary – you need to be very good at them, both 
 -----------|----------------------|
 |Nov 24-30 | Aggregation Pipelines|
 |Dec 1-7 | Redis* |
-|Dec 8-14 | Docker |
-|Dec 15-21 | ClickHouse** |
-|Dec 22-28 | Neo4j |
+|Dec 8-14 | Revision |
+|Dec 15-21 | Project Submission/Viva |
+
 
 
 *: yet to study
 
 **: didn't properly teach
 
-***: Sec A's lab is falling on a public holiday, so it will be conducted on Friday, Dec 26th.
+
 
 
