@@ -16,3 +16,7 @@ Project's final evaluation will be done on Dec 9 (sec C), 10 (sec B) and 11 (sec
 
 MVP means MVP and is meant to be launched. I can understand that mid of Dec is too early, so I can give you guys time until the 28th to complete your MVP and launch it. Those 40% will be marked then. 
 And its binary marking: either you launch it and get marks or you don't (I mean it).
+
+## Early Evaluation
+
+You can get your project (any module of it, some issues you are facing or whatever) pre-evaluated by emailing me. This feedback will ensure you can get an early feedback without getting penalized (my final evaluation can be quite mean).
