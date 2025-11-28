@@ -8,6 +8,16 @@ Projects are the ultimate outcome of this course. Their evaluation rubric will b
 - Finishing the MVP and launching it: 40% (yes!)
 - Final evaluation: 30%
 
+## Interim Evaluation
+
+Interim evaluation will be done in the first week of Dec (next week). You don't need to present it on a projector in a formal way – just show your **project's interface** (dummy interface will do), **schema design** and the **endpoints**. It would be even better if you take some screenshots and/or a screen recording video well in advance to save time.
+
+> **Note:** You are allowed to use LLM/Agentic AI tools (_one can easily make a prototype within a couple of hours using them_). But you guys (all the group members) should be able to answer my questions.
+
+This interim evaluation will carry 20% weightage of the project's whole evaluation (idea and design). I will also share the progress's 10% marks. **I reserve the right to suggest both minor and major changes in this evaluation**. Please come well-prepared.
+
+> **Extension:** In case someone needs an extension in the interim evaluation, you can email me by 29th Nov's midnight (UTC time). Beyond Nov 29th, no extension request will be entertained and absence will result into zero marks.
+
 ## Project's Final Evaluation
 
 Project's final evaluation will be done on Dec 9 (sec C), 10 (sec B) and 11 (sec A). Evaluation will be group-wise (please make sure to have your group members available for the day).
